@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/full.css">
+    <title>Escala de Folgas</title>
+</head>
+<body>
+    <input type="checkbox" id="actMenu">
+    <header>        
+        <div class="principal">
+            <img class="iconSt" src="./img/Calendar.png" alt="Logo Empresa">
+            <h1>Nome da Empresa</h1>
+            <div class="Menu">
+                <label for="actMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <div class="barraConf">
+                <select name="sSetor" id="sltSetor">
+                    <option value="0" disabled selected hidden>Setor</option>
+                    <option value="Restaurante">Restaurante</option>
+                    <option value="Cozinha">Cozinha</option>
+                    <option value="Governança">Governança</option>
+                    <option value="Manutenção">Manutenção</option>
+                    <option value="Administração">Administração</option>
+                    <option value="Recepção">Recepção</option>
+                </select>
+                <select disabled name="sMes" id="sltMes">
+                    <option value="0" disabled selected hidden>Mês</option>
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">Julho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+                <select disabled name="sMes" id="sltAno">
+                    <option value="0" disabled selected hidden>Ano</option>
+                    <option value="22">2022</option>
+                    <option value="23" selected>2023</option>
+                    <option value="24">2024</option>
+                </select>
+                <select disabled name="sFunc" id="sltFunc">
+                    <option value="0" disabled selected hidden>Funcionario</option>
+                    <option value="1">Adilson - 10h as 18h20</option>
+                    <option value="2">Thami - 6h30 as 14h50</option>
+                    <option value="3">Sabrina - 7h as 15h20</option>
+                    <option value="4">Rodrigo - 8h as 16h20</option>
+                    <option value="5">Marcela - 8h as 16h20</option>
+                    <option value="6">Aderaldo - 13h40 as 22h</option>
+                    <option value="7">Geiciele - 13h40 as 22h</option>
+                    <option value="8">Davi - 13h40 as 22h</option>
+                    <option value="9">Leticia - 13h40 as 22h</option>
+                </select>
+                <select disabled name="sFolga" id="sltFolga">
+                    <option value="0" disabled selected hidden>Folga</option>
+                    <option value="Segunda">Segunda</option>
+                    <option value="Terça">Terça</option>
+                    <option value="Quarta">Quarta</option>
+                    <option value="Quinta">Quinta</option>
+                    <option value="Sexta">Sexta</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+                <select disabled name="sDom" id="sltDom">
+                    <option value="0" disabled selected hidden>Domingo do Mês</option>
+                    <option value="1">07/05</option>
+                    <option value="2">14/05</option>
+                    <option value="3">21/05</option>
+                    <option value="4">28/05</option>
+                </select>
+                <button id="btnSEsc">Salvar</button>
+                <button id="btnCreHA">Criar Horario Alternativo</button>
+        </div>
+    </header>    
+    <div class="cBox">
+        <div class="mExtraNo">
+            <button id="btnCextra">X</button>
+            <select name="sDiaAlt" id="sltDALT" class="sltPadrao">
+                <option value="0" disabled selected hidden>Data</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <input type="number" placeholder="Hora" value="06" id="newHour">
+            <input type="number" placeholder="Minutos" value="00" id="newMinutes">
+            <button class="btnPadrao" id="btnSAlH">Salvar</button>
+        </div>
+        <div class="barraSup">
+            <h2>Escala de Folga - Restaurante - Maio</h2>
+        </div>
+        <table id="tbEscala">
+            <tr id="dSemana">
+                <td></td>
+                <td></td>
+                <td>Seg</td>
+                <td>Ter</td>
+                <td>Qua</td>
+                <td>Qui</td>
+                <td>Sex</td>
+                <td>Sab</td>
+                <td>Dom</td>
+                <td>Seg</td>
+                <td>Ter</td>
+                <td>Qua</td>
+                <td>Qui</td>
+                <td>Sex</td>
+                <td>Sab</td>
+                <td>Dom</td>
+                <td>Seg</td>
+                <td>Ter</td>
+                <td>Qua</td>
+                <td>Qui</td>
+                <td>Sex</td>
+                <td>Sab</td>
+                <td>Dom</td>
+                <td>Seg</td>
+                <td>Ter</td>
+                <td>Qua</td>
+                <td>Qui</td>
+                <td>Sex</td>
+                <td>Sab</td>
+                <td>Dom</td>
+                <td>Seg</td>
+                <td>Ter</td>
+                <td>Qua</td>
+            </tr>
+            <tr id="dDMes">
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+            </tr>
+            <tr id="dRotulo">
+                <td>Colaborador</td>
+                <td>Horario</td>
+            </tr>
+            <tr>
+                <td class="dFunc">Adilson</td>
+                <td class="dHour">10h00</td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Thami</td>
+                <td class="dHour">06h30</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Sabrina</td>
+                <td class="dHour">07h00</td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Rodrigo</td>
+                <td class="dHour">08h00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Marcela</td>
+                <td class="dHour">08h00</td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Aderaldo</td>
+                <td class="dHour">13h40</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Geiciele</td>
+                <td class="dHour">13h40</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="dFunc">Davi</td>
+                <td class="dHour">13h40</td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+            </tr>
+            <tr>
+                <td class="dFunc">Leticia</td>
+                <td class="dHour">13h40</td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DSR</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <p>Desenvolvido por <a href=""><b>Aderaldo Anderson S.V Amorim (KimeraKil)</b></a></p>
+    </footer>
+    <script src="./js/jqueryAlternative.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="./js/kim.js"></script>
+</body>
+</html>
